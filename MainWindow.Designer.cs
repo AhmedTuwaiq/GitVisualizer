@@ -50,7 +50,7 @@ namespace GitVisualizer
             this.panel1.AutoSize = true;
             this.panel1.Location = new System.Drawing.Point(12, 50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 298);
+            this.panel1.Size = new System.Drawing.Size(776, 446);
             this.panel1.TabIndex = 1;
             this.panel1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panel1_Scroll);
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -60,11 +60,13 @@ namespace GitVisualizer
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 360);
+            this.ClientSize = new System.Drawing.Size(800, 508);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnLoadRepo);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Git Visualizer";
             this.ResumeLayout(false);
             this.PerformLayout();

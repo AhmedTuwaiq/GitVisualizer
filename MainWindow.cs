@@ -20,6 +20,7 @@ namespace GitVisualizer
         public Form1()
         {
             InitializeComponent();
+            Draw.panel = this.panel1;
         }
 
         private void btnLoadRepo_Click(object sender, EventArgs e)
@@ -60,6 +61,8 @@ namespace GitVisualizer
                     
                     Draw.Commit(e.Graphics, $"{commit.Sha.Substring(0, 7)}");
                 }
+
+                Draw.reset();
             }
         }
 
