@@ -17,5 +17,9 @@ namespace GitVisualizer
             InitializeComponent();
         }
 
+        private void btnLoadRepo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

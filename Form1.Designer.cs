@@ -29,13 +29,34 @@ namespace GitVisualizer
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnLoadRepo = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnLoadRepo
+            // 
+            this.btnLoadRepo.Location = new System.Drawing.Point(8, -4);
+            this.btnLoadRepo.Name = "btnLoadRepo";
+            this.btnLoadRepo.Size = new System.Drawing.Size(94, 29);
+            this.btnLoadRepo.TabIndex = 0;
+            this.btnLoadRepo.Text = "Visualize";
+            this.btnLoadRepo.UseVisualStyleBackColor = true;
+            this.btnLoadRepo.Click += new System.EventHandler(this.btnLoadRepo_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Controls.Add(this.btnLoadRepo);
+            this.Name = "Form1";
+            this.Text = "Git Visualizer";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnLoadRepo;
     }
 }
 
