@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibGit2Sharp;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace GitVisualizer
 {
@@ -33,6 +34,7 @@ namespace GitVisualizer
                 }
 
                 this.repo = new Repository(dialog.SelectedPath);
+                this.Invalidate();
             }
         }
         
@@ -40,7 +42,22 @@ namespace GitVisualizer
         {
             if (this.repo != null)
             {
-                
+                Branch branch = this.repo.Branches["master"];
+
+                foreach (var commit in branch.Commits)
+                {
+                    if (this.repo.Head.Tip.Sha == commit.Sha)
+                    {
+                        Draw.Head(e.Graphics);
+                    }
+                    
+                    if (branch.Tip.Sha == commit.Sha)
+                    {
+                        Draw.Branch(e.Graphics, "master");
+                    }
+                    
+                    Draw.Commit(e.Graphics, $"{commit.Sha.Substring(0, 7)}");
+                }
             }
         }
     }

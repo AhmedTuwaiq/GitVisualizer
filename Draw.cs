@@ -5,7 +5,7 @@ namespace GitVisualizer
     public class Draw
     {
         private static readonly Pen pen = new Pen(Brushes.Black);
-        private static Point point = new Point(50, 140);
+        private static Point point = new Point(50, 250);
 
         static Draw()
         {
@@ -14,33 +14,35 @@ namespace GitVisualizer
         
         public static void Head(Graphics graphics)
         {
-            graphics.DrawRectangle(pen, point.X, point.Y - 80, 20, 20);
-            String(graphics, "HEAD");
+            Point headPoint = new Point(point.X, point.Y - 200);
+            graphics.DrawRectangle(pen, headPoint.X, headPoint.Y, 80, 80);
+            String(graphics, headPoint, "HEAD");
         }
         
         public static void Branch(Graphics graphics, string branch)
         {
-            graphics.DrawRectangle(pen, point.X, point.Y - 40, 20, 20);
-            String(graphics, branch);
+            Point branchPoint = new Point(point.X, point.Y - 100);
+            graphics.DrawRectangle(pen, branchPoint.X, branchPoint.Y, 80, 80);
+            String(graphics, branchPoint, branch);
         }
 
         public static void Commit(Graphics graphics, string commit)
         {
-            graphics.DrawEllipse(pen, point.X, point.Y, 20, 20);
-            String(graphics, commit);
+            graphics.DrawEllipse(pen, point.X, point.Y, 80, 80);
+            String(graphics, point, commit);
             Next();
         }
 
-        private static void String(Graphics graphics, string drawString)
+        private static void String(Graphics graphics, Point componentPoint, string drawString)
         {
-            Font drawFont = new Font("Arial", 16);
+            Font drawFont = new Font("Arial", 8);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
-            StringFormat drawFormat = new StringFormat {FormatFlags = StringFormatFlags.DirectionVertical};
-            graphics.DrawString(drawString, drawFont, drawBrush, point.X + 10, point.Y + 10, drawFormat);
+            graphics.DrawString(drawString, drawFont, drawBrush, componentPoint.X + 15, componentPoint.Y + 30);
         }
+        
         private static void Next()
         {
-            point = new Point(point.X + 40,point.Y);
+            point = new Point(point.X + 100, point.Y);
         }
     }
 }
