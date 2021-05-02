@@ -14,6 +14,7 @@ namespace GitVisualizer
 {
     public partial class Form1 : Form
     {
+        private int x = 0;
         private Repository repo = null;
         
         public Form1()
@@ -34,11 +35,12 @@ namespace GitVisualizer
                 }
 
                 this.repo = new Repository(dialog.SelectedPath);
-                this.Invalidate();
+                this.panel1.AutoScrollMinSize = new Size(Draw.point.X + (this.repo.Branches["master"].Commits.Count() * 100), this.panel1.AutoScrollMinSize.Height);
+                this.panel1.Invalidate();
             }
         }
-        
-        private void mainWindow_Paint(object sender, PaintEventArgs e)
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
             if (this.repo != null)
             {
@@ -59,6 +61,11 @@ namespace GitVisualizer
                     Draw.Commit(e.Graphics, $"{commit.Sha.Substring(0, 7)}");
                 }
             }
+        }
+
+        private void panel1_Scroll(object sender, ScrollEventArgs e)
+        {
+            this.panel1.Invalidate();
         }
     }
 }

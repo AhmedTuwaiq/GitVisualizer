@@ -5,7 +5,7 @@ namespace GitVisualizer
     public class Draw
     {
         private static readonly Pen pen = new Pen(Brushes.Black);
-        private static Point point = new Point(50, 250);
+        public static Point point = new Point(50, 250);
 
         static Draw()
         {
