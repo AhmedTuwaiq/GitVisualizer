@@ -3,11 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+.idea/
 # User-specific files
-<<<<<<< HEAD
-=======
 *.sln
->>>>>>> ahmed
 *.rsuser
 *.suo
 *.user
@@ -364,8 +362,4 @@ MigrationBackup/
 .ionide/
 
 # Fody - auto-generated XML schema
-<<<<<<< HEAD
 FodyWeavers.xsd
-=======
-FodyWeavers.xsd
->>>>>>> ahmed
